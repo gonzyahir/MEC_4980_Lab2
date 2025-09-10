@@ -12,16 +12,15 @@ int ledBrightness = 0;
 
 void loop() {
   // put your main code here, to run repeatedly:
-  delay(10);  
+  delay(250);  
 
   int reading = analogRead(A0);
   Serial.print("Result: ");
   Serial.print(reading);
   Serial.println("");
 
-  analogWrite(LED_BUILTIN, reading/16);
-  ledBrightness = (ledBrightness + 1) % 256;
-}
+  analogWrite(LED_BUILTIN, 255 - reading/8);
+} 
 
 // put function definitions here:
 int myFunction(int x, int y) {
