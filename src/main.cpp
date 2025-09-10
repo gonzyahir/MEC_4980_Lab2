@@ -1,0 +1,29 @@
+#include <Arduino.h>
+
+// put function declarations here:
+int myFunction(int, int);
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Starting Reads");
+}
+
+int ledBrightness = 0;
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  delay(10);  
+
+  int reading = analogRead(A0);
+  Serial.print("Result: ");
+  Serial.print(reading);
+  Serial.println("");
+
+  analogWrite(LED_BUILTIN, reading/16);
+  ledBrightness = (ledBrightness + 1) % 256;
+}
+
+// put function definitions here:
+int myFunction(int x, int y) {
+  return x + y;
+}
